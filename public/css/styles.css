@@ -11,6 +11,10 @@
 	color: #c3c3c3;
 }
 
+#articlesListHeader {
+	margin-top: 50px;
+}
+
 .article-header {
 	padding: 20px 0;
 }
