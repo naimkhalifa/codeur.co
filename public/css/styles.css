@@ -29,3 +29,10 @@
 footer {
 	margin-top: 50px;
 }
+
+
+
+html ::selection {
+    background: #00d1b2;
+    color: #fff;
+}
