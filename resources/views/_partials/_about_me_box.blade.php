@@ -4,7 +4,7 @@
         <div class="media">
           <div class="media-left">
             <figure class="image is-48x48">
-              <img src="/images/avatar.jpg" alt="Image">
+              <img src="/images/avatar-96x96.jpg" alt="Naïm Khalifa">
             </figure>
           </div>
           <div class="media-content">
