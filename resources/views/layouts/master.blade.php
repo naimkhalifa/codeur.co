@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Codeur.co est le site open source d'un développeur web qui veut partager son expérience autour d'un blog développé from scratch.">
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@naim_khalifa">
+    <meta name="twitter:creator" content="@naim_khalifa">
+    <meta name="twitter:title" content="codeur.co: les aventures d'un développeur web">
+    <meta name="twitter:image" content="{{env('APP_URL')}}/images/codeurco-banner.png">
+    <meta name="twitter:description" content="Codeur.co est le site open source d'un développeur web qui veut partager son expérience autour d'un blog développé from scratch.">
+
     <title>codeur.co</title>
 
     <!-- Font Awesome icons-->
