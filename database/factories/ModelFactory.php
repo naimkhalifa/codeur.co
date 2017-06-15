@@ -18,7 +18,29 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'type' => 'reader',
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->state(App\User::class, 'admin', function(Faker\Generator $faker) {
+    return [
+        'type' => 'admin',
+    ];
+});
+
+$factory->state(App\User::class, 'reader', function(Faker\Generator $faker) {
+    return [
+        'type' => 'reader',
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+    return [
+    	'title' => $faker->sentence,
+		'subtitle' => $faker->sentence,
+		'main_content' => $faker->text,
     ];
 });

@@ -2,8 +2,10 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use App\Exceptions\Posts\PostCreationUnauthorizedException;
+use App\Post;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -26,4 +28,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function scopeAdmin($query)
+    {
+        return $query->whereType('admin');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function savePost($post)
+    {
+        if ($this->type !== 'admin') {
+            throw new PostCreationUnauthorizedException;
+        }
+
+        return $this->posts()->save($post);
+    }
 }
