@@ -15,7 +15,6 @@ Route::get('/', ['as' => 'home', 'uses' =>  function () {
     return view('publications.welcome');
 }]);
 
-
 Route::get('configurer-git-pour-déployer-sur-un-mutualisé-ovh', function () {
     return view('publications.git-ovh');
 });
