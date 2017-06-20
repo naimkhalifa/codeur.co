@@ -22,3 +22,7 @@ Route::get('configurer-git-pour-déployer-sur-un-mutualisé-ovh', function () {
 
 
 Route::get('articles/{id}', 'PostsController@show');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
+	Route::post('articles/nouveau', 'PostsController@store');
+});

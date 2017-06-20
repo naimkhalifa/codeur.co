@@ -7,6 +7,7 @@ use App\Post;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -16,7 +17,7 @@ class UserTest extends TestCase
     /** @test */
     function admin_can_add_post()
     {
-    	// Arrange
+        // Arrange
         $user = factory(User::class)->states('admin')->create(['id' => 1]);
     	$post = factory(Post::class)->create(['user_id' => 1, 'title' => 'Some article']);
         // Act

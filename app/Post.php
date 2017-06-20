@@ -12,4 +12,9 @@ class Post extends Model
  	{
  		return $query->whereNotNull('published_at');
  	}
+
+ 	public function getFormattedDateAttribute()
+ 	{
+ 		return $this->published_at->format('d/m/Y');
+ 	}
 }

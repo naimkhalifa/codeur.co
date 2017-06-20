@@ -41,6 +41,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
     $faker->addProvider(new \DavidBadura\FakerMarkdownGenerator\FakerProvider($faker));
 
     return [
+        'user_id' => 1,
     	'title' => $faker->sentence,
 		'subtitle' => $faker->sentence,
         'intro' => $faker->sentence,

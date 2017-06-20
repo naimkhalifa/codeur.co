@@ -16,7 +16,6 @@ class ViewPostListingTest extends TestCase
     function user_can_view_a_published_post_listing()
     {
     	$post = factory(Post::class)->states('published')->create([
-    		'user_id' => 1,
     		'title' => 'Some post title',
     		'subtitle' => 'Some subtitle',
     		'intro' => 'Some insightful intro',
@@ -35,7 +34,7 @@ class ViewPostListingTest extends TestCase
 	/** @test */
 	function user_cannot_view_an_unpublished_post_listing()
 	{
-	    $post = factory(Post::class)->states('unpublished')->create(['user_id' => 1]);
+	    $post = factory(Post::class)->states('unpublished')->create();
 
 		$this->get('/articles/'.$post->id);
 
