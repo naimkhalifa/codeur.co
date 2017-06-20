@@ -38,9 +38,25 @@ $factory->state(App\User::class, 'reader', function(Faker\Generator $faker) {
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
+    $faker->addProvider(new \DavidBadura\FakerMarkdownGenerator\FakerProvider($faker));
+
     return [
     	'title' => $faker->sentence,
 		'subtitle' => $faker->sentence,
-		'main_content' => $faker->text,
+        'intro' => $faker->sentence,
+		'main_content_markdown' => $faker->markdown(),
+        'main_content_html' => $faker->text,
+    ];
+});
+
+$factory->state(App\Post::class, 'published', function(Faker\Generator $faker) {
+    return [
+        'published_at' => $faker->dateTimeInInterval(),
+    ];
+});
+
+$factory->state(App\Post::class, 'unpublished', function(Faker\Generator $faker) {
+    return [
+        'published_at' => null,
     ];
 });

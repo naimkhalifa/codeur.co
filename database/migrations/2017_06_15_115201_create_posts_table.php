@@ -19,7 +19,10 @@ class CreatePostsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->string('subtitle');
-            $table->text('main_content');
+            $table->text('intro')->nullable();
+            $table->text('main_content_markdown');
+            $table->text('main_content_html');
+            $table->datetime('published_at')->nullable();
             $table->timestamps();
         });
     }

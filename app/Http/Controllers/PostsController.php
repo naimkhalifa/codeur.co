@@ -9,6 +9,8 @@ class PostsController extends Controller
 {
 	public function show($id, Post $post)
 	{
-		return $post->find($id);
+		$post = Post::published()->findOrFail($id);
+
+		return view('publications.show', ['post' => $post]);
 	}
 }
