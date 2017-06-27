@@ -2,10 +2,7 @@
 
 namespace App;
 
-<<<<<<< HEAD
 use App\Exceptions\Posts\PostCreationUnauthorizedException;
-=======
->>>>>>> 33e5ea71108e1e2657c20932e088535d8a7e0c94
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
