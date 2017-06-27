@@ -40,7 +40,7 @@ class PostsController extends Controller
 		    'main_content_markdown' => 'required',
 		]);
 
-
+        $this->post->slug = str_slug(request('title')); 
         $this->post->title = request('title');
         $this->post->subtitle = request('subtitle');
         $this->post->intro = request('intro');
@@ -62,8 +62,15 @@ class PostsController extends Controller
 
     public function update(Request $request, User $user, $id)
     {
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'subtitle' => 'required',
+            'main_content_markdown' => 'required',
+        ]);
+
         $post = $this->post->find($id);
 
+        $post->slug = str_slug(request('title'));
         $post->title = request('title');
         $post->subtitle = request('subtitle');
         $post->intro = request('intro');
