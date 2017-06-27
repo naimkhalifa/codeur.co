@@ -24,3 +24,7 @@ Route::get('articles/{id}', 'PostsController@show');
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('articles/nouveau', 'PostsController@store');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('dashboard');
