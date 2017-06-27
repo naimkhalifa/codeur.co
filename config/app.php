@@ -227,9 +227,12 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
 
         'Date' => Jenssegers\Date\Date::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+=======
+>>>>>>> 33e5ea71108e1e2657c20932e088535d8a7e0c94
 
     ],
 
