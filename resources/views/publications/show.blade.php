@@ -2,7 +2,7 @@
 
 @section('blog_post')
 
-@if (Auth::user()->isAdmin())
+@if (Auth::check() && Auth::user()->isAdmin())
 <section class="container">
   <div class="columns">
     <div class="column notification is-default is-two-thirds">
