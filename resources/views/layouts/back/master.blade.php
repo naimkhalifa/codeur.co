@@ -28,8 +28,8 @@
         <aside class="column is-2 aside hero is-fullheight is-hidden-mobile">
         <div>
             <div class="main">
-                <a href="#" class="item active"><span class="icon"><i class="fa fa-home"></i></span><span class="name">Dashboard</span></a>
-                <a href="#" class="item"><span class="icon"><i class="fa fa-pencil"></i></span><span class="name">Articles</span></a>
+                <a href="{{route('dashboard')}}" class="item active"><span class="icon"><i class="fa fa-home"></i></span><span class="name">Dashboard</span></a>
+                <a href="{{route('dashboard')}}" class="item"><span class="icon"><i class="fa fa-pencil"></i></span><span class="name">Articles</span></a>
                 <a class="item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
@@ -57,10 +57,10 @@
                     <span></span>
                   </span>
                   <div class="nav-right nav-menu is-hidden-tablet">
-                    <a href="#" class="nav-item is-active">
+                    <a href="{{route('dashboard')}}" class="nav-item is-active">
                         Dashboard
                     </a>
-                    <a href="#" class="nav-item">
+                    <a href="{{route('dashboard')}}" class="nav-item">
                         Articles
                     </a>
                     <a href="{{ route('logout') }}" class="nav-item"

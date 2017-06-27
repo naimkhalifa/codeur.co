@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $query->whereType('admin');
     }
 
+    public function isAdmin()
+    {
+        return $this->type == 'admin';
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -40,7 +45,7 @@ class User extends Authenticatable
 
     public function savePost($post)
     {
-        if ($this->type !== 'admin') {
+        if ($this->isAdmin() == false) {
             throw new PostCreationUnauthorizedException();
         }
 

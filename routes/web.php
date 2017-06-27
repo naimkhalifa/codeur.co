@@ -19,10 +19,19 @@ Route::get('configurer-git-pour-déployer-sur-un-mutualisé-ovh', function () {
     return view('publications.git-ovh');
 });
 
-Route::get('articles/{id}', 'PostsController@show');
+Route::get('articles/{id}', 'PostsController@show')->name('posts.show');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::post('articles/nouveau', 'PostsController@store');
+Route::namespace('Admin')
+	->middleware('admin')
+	->prefix('admin')
+	->group(function () {
+	    Route::get('articles/nouveau', 'PostsController@create')->name('admin.posts.create');
+	    Route::post('articles/nouveau', 'PostsController@store')->name('admin.posts.store');
+		Route::get('articles/{id}', 'PostsController@show')->name('admin.posts.show');
+		Route::get('articles/{id}/editer', 'PostsController@edit')->name('admin.posts.edit');
+	    Route::post('articles/{id}/editer', 'PostsController@update')->name('admin.posts.update');
+
+	    Route::delete('articles/{id}/supprimer', 'PostsController@destroy')->name('admin.posts.delete');
 });
 
 Auth::routes();

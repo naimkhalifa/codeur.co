@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.front.post')
 
 @section('blog_post')
   <section class="blog-post">

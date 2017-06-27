@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Date\Date;
 
 class Post extends Model
 {
@@ -15,6 +16,9 @@ class Post extends Model
 
     public function getFormattedDateAttribute()
     {
-        return $this->published_at->format('d/m/Y');
+    	if ($this->published_at !== null) {
+        	return Date::parse($this->published_at)->format('l j F Y');
+    	}
+    	return '-';
     }
 }

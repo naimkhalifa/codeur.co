@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Brussels',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,8 +166,9 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Tinker\TinkerServiceProvider::class,
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -227,6 +228,7 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
 
+        'Date' => Jenssegers\Date\Date::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 
     ],

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Jenssegers\Date\Date;
 use Laravel\Dusk\DuskServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 
     /**
@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        Date::setLocale('fr');
+
         if ($this->app->environment('local', 'testing')) {
             $this->app->register(DuskServiceProvider::class);
         }

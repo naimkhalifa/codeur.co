@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,11 +23,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Post $post)
     {
-        if (Auth::user()->type !== 'admin') {
-            return redirect()->route('home');
+        if (Auth::user()->isAdmin()) {
+            $posts = $post->take(5)->get();
+            return view('admin.dashboard', ['posts' => $posts]);
         }
-        return view('admin.dashboard');
+
+        return redirect()->route('home');
     }
 }
