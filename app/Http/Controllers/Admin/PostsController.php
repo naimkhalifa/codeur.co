@@ -43,7 +43,7 @@ class PostsController extends Controller
         $this->post->slug = str_slug(request('title')); 
         $this->post->title = request('title');
         $this->post->subtitle = request('subtitle');
-        $this->post->intro = request('intro');
+        $this->post->intro = Markdown::convertToHtml(request('intro'));
         $this->post->main_content_markdown = request('main_content_markdown');
         $this->post->main_content_html = Markdown::convertToHtml(request('main_content_markdown'));
 
@@ -73,7 +73,7 @@ class PostsController extends Controller
         $post->slug = str_slug(request('title'));
         $post->title = request('title');
         $post->subtitle = request('subtitle');
-        $post->intro = request('intro');
+        $post->intro = Markdown::convertToHtml(request('intro'));
         $post->main_content_markdown = request('main_content_markdown');
         $post->main_content_html = Markdown::convertToHtml(request('main_content_markdown'));
 

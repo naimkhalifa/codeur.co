@@ -6,9 +6,16 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    public function show($id, Post $post)
+	public function index()
+	{
+		$posts = Post::latest()->get();
+
+		return view('publications.all', ['posts' => $posts]);
+	}
+
+    public function show($slug, Post $post)
     {
-        $post = Post::published()->findOrFail($id);
+        $post = Post::published()->where('slug', $slug)->first();
 
         return view('publications.show', ['post' => $post]);
     }

@@ -11,15 +11,8 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' =>  function () {
-    return view('publications.welcome');
-}]);
-
-Route::get('configurer-git-pour-déployer-sur-un-mutualisé-ovh', function () {
-    return view('publications.git-ovh');
-});
-
-Route::get('articles/{id}', 'PostsController@show')->name('posts.show');
+Route::get('/', 'PostsController@index')->name('posts.all');
+Route::get('articles/{slug}', 'PostsController@show')->name('posts.show');
 
 Route::namespace('Admin')
 	->middleware('admin')

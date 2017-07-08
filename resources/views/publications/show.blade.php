@@ -31,9 +31,9 @@
               Posté le {{Date::parse($post->published_at)->format('l j F Y')}} | Par Naïm Khalifa</p>
             @endif
             @if ($post->intro !== null)
-            <p class="hero-body">
-              {{$post->intro}}
-            </p>
+            <span class="hero-body">
+              {!! $post->intro !!}
+            </span>
             @endif
         </header>
         <div class="content">
