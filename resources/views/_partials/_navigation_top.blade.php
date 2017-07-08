@@ -2,7 +2,7 @@
     <div class="container">
         <div class="nav-left">
             <a class="nav-item" id="logo">
-                <strong>{</strong> codeur.co <strong>}</strong>
+                <img src="/images/logo-codeur.jpg" alt="codeur.co">
             </a>
         </div>
         <span class="nav-toggle" id="navigationToggle">

@@ -19,36 +19,33 @@
 </section>
 @endif
 
-<section class="blog-post">
-  <div class="container">
-    <div class="columns">
-      <div class="column is-7">        
+<div class="container">
+  <div class="columns">
+    <main class="blog-post column is-7">
+      <article>
         <header class="article-header">
           <h1 class="title is-1">{{$post->title}}</h1>
-          <h2 class="subtitle is-3">{{$post->subtitle}}
-          </h2>
+          <p class="subtitle is-3">{{$post->subtitle}}</p>
           <p class="article-metadata">
             @if ($post->published_at !== null)
               Posté le {{Date::parse($post->published_at)->format('l j F Y')}} | Par Naïm Khalifa</p>
             @endif
+            @if ($post->intro !== null)
+            <p class="hero-body">
+              {{$post->intro}}
+            </p>
+            @endif
         </header>
         <div class="content">
-          @if ($post->intro !== null)
-            <section class="hero">
-              <div class="hero-body">
-                {{$post->intro}}
-              </div>
-            </section>
-          @endif
-
           {!! $post->main_content_html !!}
-
-        </div> 
-      </div>
-
-      @include('_partials._about_me_box')
-    </div>
+        </div>
+      </article>
+    </main>
+    <aside class="column is-4 is-offset-1">
+      @include('_partials._aside_about_me')
+      @include('_partials._aside_recent_articles')
+    </aside>
   </div>
-</section>
+</div>
 
 @endsection
