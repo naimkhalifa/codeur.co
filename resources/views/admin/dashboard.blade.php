@@ -16,6 +16,7 @@
 	              <th>Title</th>
 	              <th>Extrait</th>
 	              <th>Publié le</th>
+	              <th>Actions</th>
 	            </tr>
 	          </thead>
 	          <tbody>
@@ -23,7 +24,16 @@
 	            <tr>
 	              <td><a href="{{route('admin.posts.show', $post->id)}}">{{$post->title}}</a></td>
 	              <td>{{str_limit($post->intro, 50)}}</td>
-	              <th>{{$post->formatted_date}}</th>
+	              <td>{{$post->formatted_date}}</td>
+	              <td>
+	              	<a class="button" href="{{route('admin.posts.edit', $post->id)}}"><i class="fa fa-pencil"></i></a>
+	              	<a class="button" href="{{route('admin.posts.show', $post->id)}}"><i class="fa fa-eye"></i></a>
+	              	<form action="{{route('admin.posts.delete', $post->id)}}" style="display: inline;" method="POST">
+						{{ csrf_field() }}
+						<input type="hidden" name="_method" value="DELETE">
+						<button type="submit" class="button is-danger" onclick="return confirm('Etes-vous certain?');"><i class="fa fa-trash"></i></button>
+					</form>
+	              </td>
 	            </tr>
 				@endforeach
 	          </tbody>
