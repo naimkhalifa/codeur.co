@@ -17,7 +17,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
         // Using Closure based composers...
         View::composer('_partials._aside_recent_articles', function ($view) {
-            return $view->with('latestPosts', Post::latest()->take(5)->get());
+            return $view->with('latestPosts', Post::published()->latest()->take(5)->get());
         });
     }
 
