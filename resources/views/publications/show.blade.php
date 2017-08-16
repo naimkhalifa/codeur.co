@@ -30,9 +30,9 @@
             @if ($post->published_at !== null)
               Posté le {{Date::parse($post->published_at)->format('l j F Y')}} | Par Naïm Khalifa</p>
             @endif
-            @if ($post->intro !== null)
-            <span class="hero-body">
-              {!! $post->intro !!}
+            @if ($post->intro_html !== null)
+            <span class="hero-body content">
+              {!! $post->intro_html !!}
             </span>
             @endif
         </header>

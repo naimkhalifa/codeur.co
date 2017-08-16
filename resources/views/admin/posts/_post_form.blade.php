@@ -28,9 +28,9 @@
 	</div>
 
 	<div class="field">
-		<label class="label">Intro</label>
+		<label class="label">Intro <small>(markdown)</small></label>
 		<p class="control">
-			<textarea class="textarea" name="intro" placeholder="L'introduction de votre article">{{old('intro', isset($post) ? $post->intro : '')}}</textarea>
+			<textarea class="textarea" name="intro_markdown" placeholder="L'introduction de votre article">{{old('intro_markdown', isset($post) ? $post->intro_markdown : '')}}</textarea>
 		</p>
 	</div>
 

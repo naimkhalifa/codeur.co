@@ -23,7 +23,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00d1b2">
     <meta name="theme-color" content="#00d1b2">
 </head>
-<body>
+<body id="backoffice">
     <div class="columns">
         <aside class="column is-2 aside hero is-fullheight is-hidden-mobile">
         <div>
